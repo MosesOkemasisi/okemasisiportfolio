@@ -1,0 +1,533 @@
+/* @import must always be at the very top of the CSS file to load correctly */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+/* Force reset on all anchor tags - REMOVED color: inherit to fix link text visibility */
+a, a:visited, a:hover, a:active {
+    text-decoration: none !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding does not break layout widths */
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* ================= NAVIGATION STYLES ================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 4%; /* Reduced slightly from 8% to prevent pushing menus off-screen */
+    background-color: #0a0a0a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+nav {
+    max-width: 75%; /* Keeps your link container from crowding the logo */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap; /* Safety net: allows wrapping instead of overflowing off the page edge */
+    justify-content: flex-end;
+}
+
+.nav-links li {
+    margin-left: 20px; /* Cleaned up spacing from 25px to accommodate all links gracefully */
+}
+
+.nav-links a {
+    color: #b3b3b3 !important; /* Forces the default inactive gray state */
+    text-decoration: none !important;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+    white-space: nowrap; /* Keeps links from split-wrapping mid-word */
+}
+
+/* Vibrant states for active/hover navigation links */
+.nav-links a:hover {
+    color: #ffffff !important;
+}
+
+.nav-links a.active {
+    color: #ffffff !important;
+    font-weight: 600;
+    border-bottom: 2px solid #ff5722; /* Clean orange underline signature styling */
+    padding-bottom: 5px;
+}
+
+/* ================= HERO SECTION ================= */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 25%, #121212 25%, #121212 50%, #1a1a1a 50%, #1a1a1a 75%, #121212 75%, #121212 100%);
+    background-size: 40px 40px;
+    padding-top: 100px;
+}
+
+.hero-content {
+    max-width: 55%;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.hero-content .highlight {
+    color: #ff5722; /* Vibrant orange accent color */
+}
+
+.hero-content h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 16px;
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* --- Social Icons --- */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.social-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: #ff5722; /* Orange background for icons */
+    color: #ffffff !important; /* Ensured icon graphics color white explicitly */
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+    background-color: #e04818;
+}
+
+/* --- Call to Action Button --- */
+.btn-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border: 2px solid #ff5722;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.btn-contact i {
+    font-size: 16px;
+}
+
+.btn-contact:hover {
+    background-color: #ff5722;
+    color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.4);
+}
+
+.hero-image {
+    max-width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: grayscale(100%); 
+}
+
+/* ================= CONTAINERS & GLOBAL STYLES ================= */
+.section-container {
+    padding: 80px 8% 100px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+/* --- About Section Styles --- */
+.about-section {
+    background-color: #161616;
+}
+
+.about-text h3 {
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    color: #cccccc;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* --- Services Section Styles --- */
+.services-section {
+    background-color: #121212;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: #1a1a1a;
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 1px solid #252525;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: #ff5722;
+}
+
+.service-icon {
+    font-size: 40px;
+    color: #ff5722;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.service-card p {
+    color: #aaaaaa;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* --- Projects Section Styles --- */
+.projects-section {
+    background-color: #161616;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #252525;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border-color: #ff5722;
+}
+
+.project-img-placeholder {
+    height: 200px;
+    background-color: #252525;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: #444444;
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.project-info p {
+    color: #aaaaaa;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.project-tags span {
+    display: inline-block;
+    background-color: #2a2a2a;
+    color: #ff5722;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-right: 8px;
+    font-weight: 600;
+}
+
+/* --- Skills Section Styles --- */
+.skills-section {
+    background-color: #121212;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px 50px;
+}
+
+.skill-item {
+    margin-bottom: 15px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.progress-line {
+    height: 8px;
+    width: 100%;
+    background-color: #252525;
+    border-radius: 10px;
+    position: relative;
+}
+
+.progress-line span {
+    height: 100%;
+    background-color: #ff5722;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+/* ================= FOOTER STYLES ================= */
+footer.portfolio-footer {
+    background-color: #0a0a0a !important;
+    border-top: 1px solid #252525 !important;
+    padding: 30px 8% !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.footer-content {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+}
+
+.footer-content p, 
+.footer-content .footer-credit {
+    color: #ffffff !important; 
+    text-decoration: none !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+}
+
+/* --- Email Action Button --- */
+.btn-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border: 2px solid #ffffff; /* White border to differentiate from the orange phone button */
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.btn-email i {
+    font-size: 16px;
+}
+
+.btn-email:hover {
+    background-color: #ffffff;
+    color: #121212 !important; /* Inverts color to dark on hover for readability */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive adjustment to center both buttons on mobile screens */
+@media (max-width: 968px) {
+    .cta-buttons {
+        justify-content: center;
+    }
+}
+
+/* --- Contact Section Styles --- */
+.contact-section {
+    background-color: #161616; /* Dark background alternating with your services section */
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.contact-card {
+    background-color: #1a1a1a;
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 1px solid #252525;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff5722; /* High-contrast orange accent line on hover */
+}
+
+.contact-icon {
+    font-size: 36px;
+    color: #ff5722; /* Vibrant orange accent color */
+    margin-bottom: 20px;
+}
+
+.contact-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.contact-card p {
+    color: #aaaaaa;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Minimalist text-based links for action elements */
+.contact-link {
+    display: inline-block;
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none !important;
+    transition: color 0.2s ease-in-out;
+    border-bottom: 1px dashed #ff5722;
+    padding-bottom: 2px;
+}
+
+.contact-link:hover {
+    color: #ff5722 !important;
+    border-bottom-style: solid;
+}
+
+.contact-text-static {
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+/* ================= RESPONSIVE LAYOUT adjustments ================= */
+@media (max-width: 968px) {
+    .navbar {
+        padding: 20px 5%;
+    }
+    .nav-links li {
+        margin-left: 15px;
+    }
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 140px 5% 50px 5%; /* Increased top padding to protect content from navbar overlay */
+    }
+    .hero-content {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+    .hero-image {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Organizes elements cleanly if display becomes narrow */
+        gap: 10px;
+        padding: 15px 5%;
+    }
+    nav {
+        max-width: 100%;
+    }
+    .nav-links {
+        justify-content: center;
+    }
+    .nav-links li {
+        margin: 5px 10px;
+    }
+    .section-container {
+        padding: 60px 5% 60px 5%;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
